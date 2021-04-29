@@ -35,12 +35,8 @@ export default {
   },
   methods: {
     onFileSelected(event) {
-      console.log(event);
-      console.log("hi");
       this.selectedFile = event.target.files[0];
-      console.log(this.selectedFile);
       this.url = URL.createObjectURL(this.selectedFile);
-      console.log(this.url);
     },
   },
 };

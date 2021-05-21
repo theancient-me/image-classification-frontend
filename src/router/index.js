@@ -7,13 +7,13 @@ import Pokedex from '@/views/Pokedex'
 Vue.use(VueRouter)
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'Loading',
+  //   component: Loading
+  // },
   {
-    path: '/',
-    name: 'Loading',
-    component: Loading
-  },
-  {
-    path : '/pokendex',
+    path : '/',
     name : "Pokedex",
     component : Pokedex
   }

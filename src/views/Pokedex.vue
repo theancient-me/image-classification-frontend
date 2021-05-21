@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h2 class="title-pokedex">Pokedex</h2>
+    <br />
+    <h2 class="title-pokedex">ยินดีต้อนรับสู่ Pokedex</h2>
     <input
       type="file"
       id="file"
@@ -34,9 +35,10 @@
           </div>
           <div id="picture">
             <img
-              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif"
+			 width="100%"
+              :src="filePreview"
               alt=""
-              height="170"
+              height="175"
             />
           </div>
           <div id="buttonbottomPicture"></div>
@@ -97,8 +99,8 @@
         <div id="miniButtonGlass5"></div>
         <div id="barbutton3"></div>
         <div id="barbutton4"></div>
-        <div id="yellowBox1" v-on:click="onSelectFile">เลือก Pokemon</div>
-        <div id="yellowBox2" v-on:click="submitData">ตรวจสอบ</div>
+        <button id="yellowBox1" v-on:click="onSelectFile">เลือก Pokemon</button>
+        <button id="yellowBox2" v-on:click="submitData">ตรวจสอบ</button>
         <div id="bg_curve1_right"></div>
         <div id="bg_curve2_right"></div>
         <div id="curve1_right"></div>
@@ -119,6 +121,7 @@ export default {
       textLoading: "กำลังตรวจสอบ...",
       predicResult: "",
       file: "",
+	  filePreview : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif'
     };
   },
   methods: {
@@ -127,6 +130,7 @@ export default {
     },
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
+	  this.filePreview =  URL.createObjectURL(this.$refs.file.files[0]);
     },
     async submitData() {
       let formData = new FormData();
@@ -140,10 +144,10 @@ export default {
           },
         })
         .then((res) => {
-		  this.predicResult = res.data.Predict || ''
+          this.predicResult = res.data.Predict || "";
         })
         .catch(function () {
-          console.log("FAILURE!!");
+          this.predicResult = "ไม่สามารถตรวจสอบได้";
         });
     },
   },

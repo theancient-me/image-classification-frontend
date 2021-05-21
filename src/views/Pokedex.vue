@@ -34,12 +34,7 @@
             <div id="buttontopPicture2"></div>
           </div>
           <div id="picture">
-            <img
-			 width="100%"
-              :src="filePreview"
-              alt=""
-              height="175"
-            />
+            <img width="100%" :src="filePreview" alt="" height="175" />
           </div>
           <div id="buttonbottomPicture"></div>
           <div id="speakers">
@@ -74,7 +69,7 @@
         <div id="stats">
           <div v-if="isPredict">
             <h1>สิ่งนี้คือ</h1>
-            <h2>{{ predicResult }}</h2>
+            <h2>{{ predictResult }}</h2>
           </div>
           <div v-else>
             <h1>{{ textWelcome }}</h1>
@@ -119,9 +114,10 @@ export default {
       isPredict: false,
       textWelcome: "สวัสดีครับ",
       textLoading: "กำลังตรวจสอบ...",
-      predicResult: "",
+      predictResult: "",
       file: "",
-	  filePreview : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif'
+      filePreview:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif",
     };
   },
   methods: {
@@ -130,13 +126,13 @@ export default {
     },
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
-	  this.filePreview =  URL.createObjectURL(this.$refs.file.files[0]);
+      this.filePreview = URL.createObjectURL(this.$refs.file.files[0]);
     },
     async submitData() {
       let formData = new FormData();
       formData.append("file", this.file);
       this.isPredict = true;
-      this.predicResult = this.textLoading;
+      this.predictResult = this.textLoading;
       await axios
         .post("http://localhost:8000/predict-pokemon", formData, {
           headers: {
@@ -144,11 +140,17 @@ export default {
           },
         })
         .then((res) => {
-          this.predicResult = res.data.Predict || "";
+          try {
+            this.predictResult = res.data.Predict;
+          } catch (error) {
+            throw new Error(`Can't predict this image`);
+          }
         })
-        .catch(function () {
-          this.predicResult = "ไม่สามารถตรวจสอบได้";
+        .catch((e) =>{
+          console.log(e);
+          this.predictResult = "ไม่สามารถตรวจสอบได้";
         });
+      
     },
   },
 };

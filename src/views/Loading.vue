@@ -7,7 +7,6 @@
 
 <script>
 import PokemonLoading from "@/components/PokemonLoading";
-import pokeySound from "../assets/sound/anvilletown.mp3";
 import { Howl, Howler } from "howler";
 
 export default {
@@ -31,7 +30,7 @@ export default {
   methods: {
     playingSound() {
       var sound = new Howl({
-        src: [pokeySound],
+        src: [''],
          volume: 0.5,
       });
 

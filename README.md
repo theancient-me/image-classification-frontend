@@ -1,19 +1,22 @@
-# vue-object-detection
+# Pokemon Classification
+โปรแกรม Pokemon Classification เป็นเว็บแอปพลิเคชันที่จำลองเครื่อง Pokedex ซึ่งเป็นเครื่องที่ช่วยบอกข้อมูลเกี่ยวกับโปเกมอนเนื่องจากโปเกมอนมีมากถึง 898 สายพันธุ์ ทำให้ยากต่อการจดจำว่าแต่ละสายพันธุ์ชื่ออะไร โปรแกรมนี้จะช่วยให้ผู้ใช้สามารถจำแนกประเภทข้อมูลภาพ (Image Classification) ของโปเกมอนว่าแต่ละภาพคือสายพันธุ์อะไร โดยใช้เทคโนโลยี Deep Learning ซึ่งเป็นส่วนหนึ่งของ Machine Learning มาเรียนรู้และจำแนกประเภทของโปเกมอน 150 สายพันธุ์
 
-## Project setup
-```
-yarn install
-```
+ดู Repository back-end ได้ที่ [image-classification-api](https://github.com/theancient-me/image-classification-frontend.git)
 
-### Compiles and hot-reloads for development
-```
+## Install
+````
+yarn
+````
+## Run Project
+````
 yarn serve
-```
+````
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## About us
+เว็บแอปพลิเคชันนี้เป็นส่วนหนึ่งของวิชา INT491 Applied Deep Learning ภาคเรียนที่ 2 ปีการศึกษา 2563 คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+### ผู้จัดทำ
+- นาย จตวัฒน์	    เซี่ย			รหัสนักศึกษา 60130500009
+- นาย จิรพันธ์    เย็นขัน			รหัสนักศึกษา 60130500012
+- นาย ฐณพล	ประดิษฐ์สถบดี		รหัสนักศึกษา 60130500024
+### อาจารย์ผู้สอน
+ผศ.ดร. สายชล ใจเย็น

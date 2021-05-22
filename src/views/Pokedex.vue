@@ -102,6 +102,7 @@
         <div id="curve2_right"></div>
       </div>
     </div>
+    <div id="catch_screen"></div>
   </div>
 </template>
 
